@@ -21,7 +21,12 @@ public class albumClt {
 
     public static void main(String[] args) throws InterruptedException {
         long start, end;
-        String currentPhase = "Loading Java Server Phase - App Load Balancer - 3 Servlets (t2.medium), 1 DB (db.t3.medium, 225 Connections)";
+        String currentPhase = "";
+        //3 Servlets with big db
+        //2 Servlets with db
+        //1 Servlet  with normal
+
+
 
         // Define starting constants
         int threadGroupSize = Integer.parseInt(args[0]);

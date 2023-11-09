@@ -63,11 +63,11 @@ public class AlbumsServlet extends HttpServlet {
                 res.getWriter().write(resultSet.getString("AlbumProfile"));
             } else {
                 res.setStatus(HttpServletResponse.SC_NOT_FOUND);
-                res.getWriter().write("Key not found");
+                res.getWriter().write("Not found");
             }
         } catch (SQLException e) {
             res.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
-            res.getWriter().write("There was an error with the database");
+            res.getWriter().write("Error with the database");
         }
     }
 
@@ -89,7 +89,7 @@ public class AlbumsServlet extends HttpServlet {
 
         if (image == null || !isImageContentType(image.getContentType()) || albumProfilePart == null) {
             res.setStatus(HttpServletResponse.SC_BAD_REQUEST);
-            res.getWriter().write("Invalid or missing image OR missing album profile");
+            res.getWriter().write("Missing Image or Wrong Profile");
             return;
         }
 
@@ -100,7 +100,7 @@ public class AlbumsServlet extends HttpServlet {
 
         if (artist == null || title == null || year == null) {
             res.setStatus(HttpServletResponse.SC_BAD_REQUEST);
-            res.getWriter().write("Unable to parse album info");
+            res.getWriter().write("Wrong with the profile ");
             return;
         }
 
